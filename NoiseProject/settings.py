@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+# from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,13 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'material',
+    'material.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'nHome'
+    'nHome',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'NoiseProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,3 +123,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MATERIAL_ADMIN_SITE = {
+    'HEADER': 'NOISE Admin Login',  # Admin site header
+    'TITLE': 'NOISE',  # Admin site title
+    'FAVICON': 'base/logo.ico',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR': 'orange',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR': 'black',  # Admin site main hover color, css color should be specified
+    'PROFILE_PICTURE': 'base/logo.png',  # Admin site profile picture (path to static should be specified)
+    'PROFILE_BG': 'base/background.jpg',  # Admin site profile background (path to static should be specified)
+    'LOGIN_LOGO': 'base/logo.png',  # Admin site base on login page (path to static should be specified)
+    'LOGOUT_BG': 'base/LogoutBG.jpeg',  # Admin site background on login/logout pages (path to static should be specified)
+
+}
